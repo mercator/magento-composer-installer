@@ -8,7 +8,7 @@ namespace MagentoHackathon\Composer\Magento;
 /**
  * Parses Magento Connect 2.0 package.xml files
  */
-class PackageXmlParser implements Parser
+class PackageXmlParser extends MercatorParser
 {
     /**
      * @var string Path to vendor module dir
@@ -96,6 +96,8 @@ class PackageXmlParser implements Parser
         }
 
         $map = $this->_parseMappings();
+        // translate public file mappings to use Mercator's 'public' directory
+        $map = $this->translateMercatorPathMappings($map);
         return $map;
     }
 

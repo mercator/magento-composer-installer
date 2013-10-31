@@ -5,7 +5,7 @@
 
 namespace MagentoHackathon\Composer\Magento;
 
-class MapParser implements Parser {
+class MapParser extends MercatorParser {
 
     protected $_mappings = array();
 
@@ -16,7 +16,8 @@ class MapParser implements Parser {
 
     public function setMappings($mappings)
     {
-        $this->_mappings = $mappings;
+        // translate public file mappings to use Mercator's 'public' directory
+        $this->_mappings = $this->translateMercatorPathMappings($mappings);
     }
 
     public function getMappings()

@@ -8,7 +8,7 @@ namespace MagentoHackathon\Composer\Magento;
 /**
  * Parsers modman files
  */
-class ModmanParser implements Parser
+class ModmanParser extends MercatorParser
 {
     /**
      * @var string Path to vendor module dir
@@ -102,6 +102,8 @@ class ModmanParser implements Parser
         }
 
         $map = $this->_parseMappings();
+        // translate public file mappings to use Mercator's 'public' directory
+        $map = $this->translateMercatorPathMappings($map);
         return $map;
     }
 
