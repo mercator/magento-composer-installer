@@ -49,9 +49,6 @@
     },
     "extra":{
         "composer-command-registry": [ "MagentoHackathon\\Composer\\Magento\\Command\\DeployCommand" ],
-        "class":"MagentoHackathon\\Composer\\Magento\\Installer",
-        "DISABLEbranch-alias": {
-            "dev-mercator": "1.x-dev"
-        }
+        "class":"MagentoHackathon\\Composer\\Magento\\Installer"
     }
 }
